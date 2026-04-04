@@ -1,0 +1,41 @@
+[project]
+name = "pytorch-tutorial"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.3",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+]
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+
+# 以下是格式相关设置(Ruff规范)
+[tool.ruff]
+# 设置最大单行长度。Ruff 默认是 88（Black 风格），
+# 但为了和你 C++ 的 100 字符宽度保持大屏视觉统一，这里设为 100
+line-length = 100
+
+# 设定支持的 Python 最低版本
+target-version = "py312"
+
+[tool.ruff.lint]
+# 开启的规则集：
+# "E" (pycodestyle errors) - 基础 PEP8 错误
+# "W" (pycodestyle warnings) - 基础 PEP8 警告
+# "F" (Pyflakes) - 极其重要的逻辑错误（如变量未定义、包导入未使用）
+# "I" (isort) - 极其重要：自动按照标准库、第三方库、本地包的顺序整理 import 排版
+select = ["E", "F", "I", "W"]
+ignore = []
+
+[tool.ruff.format]
+# 强制使用双引号（Black 的标志性风格，消除单双引号混用的脏乱差）
+quote-style = "double"
+# 自动在文件末尾添加空行
+docstring-code-format = true
